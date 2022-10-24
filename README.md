@@ -3,8 +3,6 @@
 
 JavaScript library for generating QR codes with a logo and styling.
 
-Try it here https://qr-code-styling.com
-
 If you have issues / suggestions / notes / questions, please open an issue or contact me. Let's create a cool library together.
 ### Examples
 <p float="left">
