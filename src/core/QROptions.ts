@@ -1,7 +1,15 @@
 import qrTypes from "../constants/qrTypes";
 import drawTypes from "../constants/drawTypes";
 import errorCorrectionLevels from "../constants/errorCorrectionLevels";
-import { DotType, Options, TypeNumber, ErrorCorrectionLevel, Mode, DrawType, Gradient } from "../types";
+import {
+  DotType,
+  Options,
+  TypeNumber,
+  ErrorCorrectionLevel,
+  Mode,
+  DrawType,
+  Gradient,
+} from "../types";
 
 export interface RequiredOptions extends Options {
   type: DrawType;
@@ -19,6 +27,7 @@ export interface RequiredOptions extends Options {
     imageSize: number;
     crossOrigin?: string;
     margin: number;
+    rounded: number;
   };
   dotsOptions: {
     type: DotType;
@@ -40,21 +49,22 @@ const defaultOptions: RequiredOptions = {
   qrOptions: {
     typeNumber: qrTypes[0],
     mode: undefined,
-    errorCorrectionLevel: errorCorrectionLevels.Q
+    errorCorrectionLevel: errorCorrectionLevels.Q,
   },
   imageOptions: {
     hideBackgroundDots: true,
     imageSize: 0.4,
     crossOrigin: undefined,
-    margin: 0
+    margin: 0,
+    rounded: 0,
   },
   dotsOptions: {
     type: "square",
-    color: "#000"
+    color: "#000",
   },
   backgroundOptions: {
-    color: "#fff"
-  }
+    color: "#fff",
+  },
 };
 
 export default defaultOptions;

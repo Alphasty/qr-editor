@@ -20,14 +20,6 @@ npm install qr-code-styling
 ### Usage
 
 ```HTML
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>QR Code Styling</title>
-    <script type="text/javascript" src="https://unpkg.com/qr-code-styling@1.5.0/lib/qr-code-styling.js"></script>
-</head>
-<body>
 <div id="canvas"></div>
 <script type="text/javascript">
 
@@ -46,15 +38,15 @@ npm install qr-code-styling
         },
         imageOptions: {
             crossOrigin: "anonymous",
-            margin: 20
+            margin: 20,
+            rounded:0
         }
     });
 
     qrCode.append(document.getElementById("canvas"));
     qrCode.download({ name: "qr", extension: "svg" });
 </script>
-</body>
-</html>
+
 ```
 ---
 
@@ -114,6 +106,7 @@ hideBackgroundDots|boolean                                |`true`       |Hide al
 imageSize         |number                                 |`0.4`        |Coefficient of the image size. Not recommended to use ove 0.5. Lower is better
 margin            |number                                 |`0`          |Margin of the image in px
 crossOrigin       |string(`'anonymous' 'use-credentials'`)|             |Set "anonymous" if you want to download QR code from other origins.
+rouned            |number                                 |`0`          |Set border radius for image
 
 `options.dotsOptions` structure
 
