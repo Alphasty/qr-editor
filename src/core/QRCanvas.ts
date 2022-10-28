@@ -403,10 +403,53 @@ export default class QRCanvas {
     const dy = yBeginning + options.imageOptions.margin + (count * dotSize - height) / 2;
     const dw = width - options.imageOptions.margin * 2;
     const dh = height - options.imageOptions.margin * 2;
-
-    canvasContext.drawImage(this._image, dx, dy, dw < 0 ? 0 : dw, dh < 0 ? 0 : dh);
+    this.roundedImage({
+      x: dx,
+      y: dy,
+      width: dw,
+      height: dh,
+      radius: this._options.imageOptions.rounded,
+    });
+    canvasContext.clip();
+    canvasContext.drawImage(
+      this._image,
+      dx,
+      dy,
+      dw < 0 ? 0 : dw,
+      dh < 0 ? 0 : dh
+    );
+    canvasContext.restore();
   }
 
+  roundedImage({
+    x,
+    y,
+    width,
+    height,
+    radius,
+  }: {
+    x: number;
+    y: number;
+    width: number;
+    height: number;
+    radius: number;
+  }): void {
+    const ctx = this.context;
+    if (!ctx) {
+      throw "canvasContext is not defined";
+    }
+    ctx.beginPath();
+    ctx.moveTo(x + radius, y);
+    ctx.lineTo(x + width - radius, y);
+    ctx.quadraticCurveTo(x + width, y, x + width, y + radius);
+    ctx.lineTo(x + width, y + height - radius);
+    ctx.quadraticCurveTo(x + width, y + height, x + width - radius, y + height);
+    ctx.lineTo(x + radius, y + height);
+    ctx.quadraticCurveTo(x, y + height, x, y + height - radius);
+    ctx.lineTo(x, y + radius);
+    ctx.quadraticCurveTo(x, y, x + radius, y);
+    ctx.closePath();
+  }
   _createGradient({
     context,
     options,
