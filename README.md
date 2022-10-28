@@ -106,7 +106,7 @@ hideBackgroundDots|boolean                                |`true`       |Hide al
 imageSize         |number                                 |`0.4`        |Coefficient of the image size. Not recommended to use ove 0.5. Lower is better
 margin            |number                                 |`0`          |Margin of the image in px
 crossOrigin       |string(`'anonymous' 'use-credentials'`)|             |Set "anonymous" if you want to download QR code from other origins.
-rouned            |number                                 |`0`          |Set border radius for image
+rounded            |number                                 |`0`          |Set border radius for image
 
 `options.dotsOptions` structure
 
