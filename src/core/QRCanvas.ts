@@ -408,7 +408,7 @@ export default class QRCanvas {
       y: dy,
       width: dw,
       height: dh,
-      radius: this._options.imageOptions.rounded,
+      radius: parseInt(this._options.imageOptions.rounded+''),
     });
     canvasContext.clip();
     canvasContext.drawImage(
